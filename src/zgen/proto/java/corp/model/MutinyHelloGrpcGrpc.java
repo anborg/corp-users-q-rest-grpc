@@ -1,6 +1,6 @@
-package org.demo;
+package corp.model;
 
-import static org.demo.HelloGrpcGrpc.getServiceDescriptor;
+import static corp.model.HelloGrpcGrpc.getServiceDescriptor;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
@@ -36,7 +36,7 @@ public final class MutinyHelloGrpcGrpc implements io.quarkus.grpc.MutinyGrpc {
         }
 
         
-        public io.smallrye.mutiny.Uni<org.demo.HelloReply> sayHello(org.demo.HelloRequest request) {
+        public io.smallrye.mutiny.Uni<corp.model.HelloReply> sayHello(corp.model.HelloRequest request) {
             return io.quarkus.grpc.stubs.ClientCalls.oneToOne(request, delegateStub::sayHello);
         }
 
@@ -58,18 +58,18 @@ public final class MutinyHelloGrpcGrpc implements io.quarkus.grpc.MutinyGrpc {
 
 
         
-        public io.smallrye.mutiny.Uni<org.demo.HelloReply> sayHello(org.demo.HelloRequest request) {
+        public io.smallrye.mutiny.Uni<corp.model.HelloReply> sayHello(corp.model.HelloRequest request) {
             throw new io.grpc.StatusRuntimeException(io.grpc.Status.UNIMPLEMENTED);
         }
 
         @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
             return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
                     .addMethod(
-                            org.demo.HelloGrpcGrpc.getSayHelloMethod(),
+                            corp.model.HelloGrpcGrpc.getSayHelloMethod(),
                             asyncUnaryCall(
                                     new MethodHandlers<
-                                            org.demo.HelloRequest,
-                                            org.demo.HelloReply>(
+                                            corp.model.HelloRequest,
+                                            corp.model.HelloReply>(
                                             this, METHODID_SAY_HELLO, compression)))
                     .build();
         }
@@ -97,8 +97,8 @@ public final class MutinyHelloGrpcGrpc implements io.quarkus.grpc.MutinyGrpc {
         public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
             switch (methodId) {
                 case METHODID_SAY_HELLO:
-                    io.quarkus.grpc.stubs.ServerCalls.oneToOne((org.demo.HelloRequest) request,
-                            (io.grpc.stub.StreamObserver<org.demo.HelloReply>) responseObserver,
+                    io.quarkus.grpc.stubs.ServerCalls.oneToOne((corp.model.HelloRequest) request,
+                            (io.grpc.stub.StreamObserver<corp.model.HelloReply>) responseObserver,
                             compression,
                             serviceImpl::sayHello);
                     break;

@@ -1,4 +1,4 @@
-package org.demo;
+package corp.model;
 
 import java.util.function.BiFunction;
 
@@ -29,7 +29,7 @@ public class HelloGrpcClient implements HelloGrpc, MutinyClient<MutinyHelloGrpcG
     }
 
     @Override
-    public io.smallrye.mutiny.Uni<org.demo.HelloReply> sayHello(org.demo.HelloRequest request) {
+    public io.smallrye.mutiny.Uni<corp.model.HelloReply> sayHello(corp.model.HelloRequest request) {
        return stub.sayHello(request);
     }
 

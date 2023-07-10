@@ -3,6 +3,9 @@ package org.demo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.Duration;
+import corp.model.HelloGrpc;
+import corp.model.HelloReply;
+import corp.model.HelloRequest;
 
 import io.quarkus.grpc.GrpcClient;
 import io.quarkus.test.junit.QuarkusTest;
@@ -12,6 +15,7 @@ import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class HelloGrpcServiceTest {
+
 
     @GrpcClient("hello")
     HelloGrpc helloGrpc;

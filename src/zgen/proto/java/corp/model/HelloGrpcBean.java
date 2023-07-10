@@ -1,4 +1,4 @@
-package org.demo;
+package corp.model;
 
 import io.grpc.BindableService;
 import io.quarkus.grpc.GrpcService;
@@ -16,7 +16,7 @@ public class HelloGrpcBean extends MutinyHelloGrpcGrpc.HelloGrpcImplBase impleme
     }
 
     @Override
-    public io.smallrye.mutiny.Uni<org.demo.HelloReply> sayHello(org.demo.HelloRequest request) {
+    public io.smallrye.mutiny.Uni<corp.model.HelloReply> sayHello(corp.model.HelloRequest request) {
        try {
          return delegate.sayHello(request);
        } catch (UnsupportedOperationException e) {
